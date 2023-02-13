@@ -24,6 +24,13 @@
     (is (destr2 []) 0)
     (is (destr2 [1]) 1)))
 
+(deftest destr3-test
+  (testing "Testing the third version of destructuring"
+    (is (destr3 [1 2 3]) 3)
+    (is (destr3 '(1 2 3)) 3)
+    (is (destr3 []) 0)
+    (is (destr3 [1]) 1)))
+
 (deftest greeting-test
   (testing "Testing the greeting function"
     (is (greeting "Jane") "Hello, Jane")
@@ -34,3 +41,8 @@
     (is (sum) 0)
     (is (sum 2) 2)
     (is (sum 1 2 3 4) 10)))
+
+(deftest multInv-test
+  (testing "Testing the multiplicative inverse"
+     (is (multInv  "55555555" "10888869450418352160768000001")
+         (BigInteger. "6868292131621889130431323734"))))  

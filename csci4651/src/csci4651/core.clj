@@ -20,6 +20,9 @@
 (defn destr2 [[x y & more]]
       (+ (or x 0) (or y 0))) ; why does it work?
 
+(defn destr3 [[x y & _]] ; don't need the rest of the elements in the vector
+      (+ (or x 0) (or y 0)))
+
 ;; multi-arity functions:
 (defn greeting
   ([first-name] (str "Hello, " first-name))
@@ -38,3 +41,11 @@
   ([] 0)
   ([x] x)
   ([x & xs] (+ x (apply sum xs)))) ; note implicit recursion, although not tail-recursion
+
+;; Java interop - calling Java from clojure
+(defn multInv [num1 num2]
+  "The function takes two numbers as strings and finds the multiplicative inverse
+   of the first modulo the second"
+   (.modInverse (BigInteger. num1) (BigInteger. num2)))
+
+;; How do we check the answer? Write an expression using Java interop (don't forget to print)
